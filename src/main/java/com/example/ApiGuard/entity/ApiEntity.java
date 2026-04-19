@@ -19,5 +19,11 @@ public class ApiEntity {
     private String method;
     private int intervalSeconds;
     private int timeout;
+
     private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
